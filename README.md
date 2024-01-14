@@ -20,26 +20,47 @@ Moviescreen is a social full-stack web application designed for movie enthusiast
 
 ## Features
 
-- User authentication and authorization system
-- User profile creation and customization
-- Movie search and discovery using TMDB API
-- Save favorite movies to a personal list
-- Review and rating system for movies
-- Share movies and reviews within the community
+#### Server-side (Express.js and Mongoose):
 
-## User Stories
+- Set up Express.js for routing and handling API requests.
+- Use Mongoose to interact with MongoDB for storing user data, movie information, reviews, and user favorites.
 
-### Version 1.0 (Initial Release)
+#### Authentication and Authorization:
 
-- [x] As a user, I want to register an account
-- [ ] As a user, I want to customize my profile, adding a profile picture, bio, or other details, to make my profile unique.
-- [x] As a user, I want the application to have a responsive design, ensuring usability across various devices.
-- [ ] As a user, I want to save my favorite movies to a list, so I can easily access them later.
-- [ ] As a movie lover, I want to view detailed information about a movie (e.g., synopsis, release date, ratings, cast), so I can make informed decisions about what to watch.
+- Implement user authentication using JWT (JSON Web Tokens) for secure and stateless authentication.
+- Use middleware to handle authorization checks for protected routes.
 
-### Version 1.1 (Updates and Enhancements)
+#### User Profile:
 
-- [ ] As a user, I want to see skeleton components when the data is loading.
+- Create a user profile system where users can sign up, log in, and customize their profiles.
+- Allow users to update profile details, including avatars and other personal information.
+
+#### Movie Search and Discovery (TMDB API):
+
+- Integrate with TMDB API to fetch movie data, including details and images.
+- Implement a search feature for users to discover new movies.
+
+#### Favorite Movies List:
+
+- Enable users to save their favorite movies to a personal list.
+- Use MongoDB to store user-specific favorite movie data.
+
+#### Review and Rating System:
+
+- Implement a review and rating system where users can provide feedback on movies.
+- Store reviews and ratings in the database and associate them with the corresponding movies.
+
+#### Community Sharing:
+
+- Enable users to share their favorite movies and reviews within the community.
+- Implement social features like commenting on reviews or liking a movie.
+
+#### Client-side (React.js, TailwindCSS, DaisyUI, React Router, Swiper.js):
+
+- Develop a responsive and interactive user interface using React.js.
+- Utilize TailwindCSS for styling, and integrate DaisyUI components for enhanced UI elements.
+- Implement React Router for navigation between different pages of the app.
+- Use Swiper.js for creating a visually appealing movie carousel or slider.
 
 ## Lessons Learned
 

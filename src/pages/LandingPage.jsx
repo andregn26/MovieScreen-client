@@ -1,4 +1,3 @@
-import React from "react";
 import { useState, useEffect } from "react";
 import { randomReviews, getUpcomingMovies, trendingWeekMovies, getTopRated, getPopularMovies, getInTheatres, randomSix } from "../api";
 import { format } from "timeago.js";
