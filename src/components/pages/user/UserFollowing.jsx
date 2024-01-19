@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { getFollowing } from "../../api";
+import { getFollowing } from "../../../api";
 import { Link, useParams } from "react-router-dom";
-import Header from "../../components/user/Header";
-import Container from "../../components/containers/Container";
-import UserCard from "../../components/user/UserCard";
+import UserNavigationHeader from "../../organisms/UserNavigationHeader";
+import Container from "../../../components/templates/Container";
+import UserCard from "../../molecules/UserCard";
 
 export const UserFollowing = () => {
 	const { username } = useParams();
@@ -18,7 +18,7 @@ export const UserFollowing = () => {
 
 	return (
 		<Container>
-			<Header username={username} type={"follows"} />
+			<UserNavigationHeader username={username} type={"follows"} />
 			{userFollowing && userFollowing.length > 0 ? (
 				<div className="w-full grid grid-cols-6 lg:grid-cols-12 gap-8">
 					{userFollowing.map((follow) => {

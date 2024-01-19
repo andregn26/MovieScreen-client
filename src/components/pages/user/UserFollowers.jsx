@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { getFollowers } from "../../api";
+import { getFollowers } from "../../../api";
 import { useParams } from "react-router-dom";
-import Container from "../../components/containers/Container";
-import Header from "../../components/user/Header";
-import UserCard from "../../components/user/UserCard";
+import Container from "../../../components/templates/Container";
+import UserNavigationHeader from "../../organisms/UserNavigationHeader";
+import UserCard from "../../molecules/UserCard";
 
 export const UserFollowers = () => {
 	const { username } = useParams();
@@ -18,7 +18,7 @@ export const UserFollowers = () => {
 
 	return (
 		<Container>
-			<Header username={username} type={"followers"} />
+			<UserNavigationHeader username={username} type={"followers"} />
 			{userFollowers && userFollowers.length > 0 ? (
 				<div className="w-full grid grid-cols-6 lg:grid-cols-12 gap-8">
 					{userFollowers.map((follower) => {

@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
-import { getUser, removeFromFavourites, followUser, unfollowUser } from "../../api";
+import { getUser, removeFromFavourites, followUser, unfollowUser } from "../../../api";
 import { Link } from "react-router-dom";
-import { UserContext } from "../../context/user.context";
+import { UserContext } from "../../../context/user.context";
 import { toast } from "react-toastify";
 import { FaUserPlus, FaUserCheck } from "react-icons/fa";
-import { FavouritesCard } from "../../components/FavouritesCard";
+import { FavouritesCard } from "../../molecules/FavouritesCard";
 
 export const Profile = () => {
 	const { user } = useContext(UserContext);

@@ -1,4 +1,4 @@
-import { signUp } from "../../api";
+import { signUp } from "../../../api";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";

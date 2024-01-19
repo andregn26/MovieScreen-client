@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { randomReviews, getUpcomingMovies, trendingWeekMovies, getTopRated, getPopularMovies, getInTheatres, randomSix } from "../api";
+import { randomReviews, getUpcomingMovies, trendingWeekMovies, getTopRated, getPopularMovies, getInTheatres, randomSix } from "../../api";
 import { format } from "timeago.js";
 import { Link } from "react-router-dom";
-import Container from "../components/containers/Container";
-import TrendingMovies from "../components/carousel/TrendingMovies";
-import LandingCarouselMovies from "../components/carousel/LandingCarouselMovies";
+import Container from "../../components/templates/Container";
+import TrendingMovies from "../carousel/TrendingMovies";
+import LandingCarouselMovies from "../carousel/LandingCarouselMovies";
 
 export const LandingPage = () => {
 	const [trendingMovies, setTrendingMovies] = useState([]);

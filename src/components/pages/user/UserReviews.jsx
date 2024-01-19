@@ -1,17 +1,15 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-import { getUserReviews, editReview, deleteReview } from "../../api";
-import Container from "../../components/containers/Container";
+import { getUserReviews, editReview, deleteReview } from "../../../api";
+import Container from "../../../components/templates/Container";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import { UserContext } from "../../context/user.context";
+import { UserContext } from "../../../context/user.context";
 import { FaWrench, FaTrashAlt, FaCheck } from "react-icons/fa";
 import "animate.css";
-
-//Timeago.js tells how many weeks, days, hours or seconds a comment/Post was made
 import { format } from "timeago.js";
-import Header from "../../components/user/Header";
+import UserNavigationHeader from "../../organisms/UserNavigationHeader";
 
 export const UserReviews = () => {
 	const { user } = useContext(UserContext);
@@ -61,7 +59,7 @@ export const UserReviews = () => {
 
 	return (
 		<Container>
-			<Header username={username} type={"reviews"} />
+			<UserNavigationHeader username={username} type={"reviews"} />
 
 			<div className="w-full grid grid-cols-6 gap-8">
 				{reviews && reviews.length > 0 ? (

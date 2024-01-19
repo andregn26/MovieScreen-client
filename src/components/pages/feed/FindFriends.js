@@ -1,11 +1,11 @@
 import React from "react";
-import { searchUsers, getUsersGenres, randomSix } from "../../api";
+import { searchUsers, getUsersGenres, randomSix } from "../../../api";
 import { useState, useEffect } from "react";
 import { useContext } from "react";
-import { UserContext } from "../../context/user.context";
+import { UserContext } from "../../../context/user.context";
 import { Link } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
-import { FriendsSuggestions } from "../../components/FriendsSuggestions";
+import { FriendsSuggestions } from "../../organize/FriendsSuggestions";
 import "./FindFriends.scss";
 
 export const FindFriends = () => {

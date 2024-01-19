@@ -1,11 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { updateUser, getUser, upload } from "../../api";
+import { updateUser, getUser, upload } from "../../../api";
 import Select from "react-select";
 import { toast } from "react-toastify";
-import Container from "../../components/containers/Container";
-import Header from "../../components/user/Header";
+import Container from "../../../components/templates/Container";
+import UserNavigationHeader from "../../organisms/UserNavigationHeader";
 
 export const EditUser = () => {
 	const { username } = useParams();
@@ -110,7 +110,7 @@ export const EditUser = () => {
 
 	return (
 		<Container>
-			<Header username={username} type={"edit profile"} />
+			<UserNavigationHeader username={username} type={"edit profile"} />
 			<div className="card sm:max-w-md lg:max-w-screen-lg lg:card-side bg-base-200/70 shadow-xl">
 				<figure className="relative lg:max-w-sm">
 					<img className="object-cover w-full h-full" src={user.profileImg} alt="profile" />

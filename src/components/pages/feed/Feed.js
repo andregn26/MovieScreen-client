@@ -1,9 +1,9 @@
 import React from "react";
-import { getFeed } from "../../api";
+import { getFeed } from "../../../api";
 import { useContext, useState, useEffect } from "react";
-import { UserContext } from "../../context/user.context";
-import { CreatePost } from "../../components/CreatePost";
-import { Post } from "../../components/Post";
+import { UserContext } from "../../../context/user.context";
+import { CreatePost } from "../../organize/CreatePost";
+import { Post } from "../../organize/Post";
 import "./Feed.scss";
 
 export const Feed = () => {

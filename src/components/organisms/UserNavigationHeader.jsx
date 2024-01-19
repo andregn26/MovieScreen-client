@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Header = ({ username, type }) => {
+const UserNavigationHeader = ({ username, type }) => {
 	return (
 		<div className="w-full flex flex-col sm:flex-row justify-between mb-8">
 			<h2 className="heading-1">
@@ -14,4 +14,4 @@ const Header = ({ username, type }) => {
 	);
 };
 
-export default Header;
+export default UserNavigationHeader;

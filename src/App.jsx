@@ -2,29 +2,29 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Navbar } from "./components/navbar/Navbar";
 // auth
-import { Signup } from "./pages/auth/Signup";
-import { Login } from "./pages/auth/Login";
-import { IsPrivate } from "./components/IsPrivate";
+import { Signup } from "./components/pages/auth/Signup";
+import { Login } from "./components/pages/auth/Login";
+import { IsPrivate } from "./components/atoms/IsPrivate";
 // user
-import { Profile } from "./pages/user/Profile";
-import { EditUser } from "./pages/user/EditUser";
-import { UserReviews } from "./pages/user/UserReviews";
-import { UserFollowers } from "./pages/user/UserFollowers";
-import { UserFollowing } from "./pages/user/UserFollowing";
+import { Profile } from "./components/pages/user/Profile";
+import { EditUser } from "./components/pages/user/EditUser";
+import { UserReviews } from "./components/pages/user/UserReviews";
+import { UserFollowing } from "./components/pages/user/UserFollowing";
+import { UserFollowers } from "./components/pages/user/UserFollowers";
 // movie
-import { MovieDetails } from "./pages/movie/MovieDetails";
+import { MovieDetails } from "./components/pages/movie/MovieDetails";
 // feed
 import { searchMovie } from "./api";
-import { FindFriends } from "./pages/feed/FindFriends";
-import { Feed } from "./pages/feed/Feed";
-import { CreatePost } from "./components/CreatePost";
-import { Post } from "./components/Post";
+import { FindFriends } from "./components/pages/feed/FindFriends";
+import { Feed } from "./components/pages/feed/Feed";
+import { CreatePost } from "./components/organize/CreatePost";
+import { Post } from "./components/organize/Post";
 // landing
-import { LandingPage } from "./pages/LandingPage";
-import Footer from "./components/Footer";
-import MovieSearchModal from "./components/MovieSearchModal";
+import { Navbar } from "./components/organisms/Navbar";
+import { LandingPage } from "./components/pages/LandingPage";
+import Footer from "./components/organisms/Footer";
+import MovieSearchModal from "./components/molecules/MovieSearchModal";
 
 function App() {
 	const [searchedMovies, setSearchedMovies] = useState([]);

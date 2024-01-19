@@ -1,8 +1,8 @@
-import { logIn } from "../../api";
+import { logIn } from "../../../api";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-import { UserContext } from "../../context/user.context";
+import { UserContext } from "../../../context/user.context";
 
 import React from "react";
 

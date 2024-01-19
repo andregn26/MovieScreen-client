@@ -10,15 +10,15 @@ import {
 	removeFromFavourites,
 	getMovieReviews,
 	getMovieCredits,
-} from "../../api";
-import { UserContext } from "../../context/user.context";
+} from "../../../api";
+import { UserContext } from "../../../context/user.context";
 import { toast } from "react-toastify";
 import { useContext } from "react";
-import { MovieDetailCard } from "../../components/MovieDetailCard";
-import { MovieCardXS } from "../../components/MovieCardXS";
-import { ReviewForm } from "../../components/ReviewForm";
-import { MovieReviews } from "../../components/MovieReviews";
-import { MovieCredits } from "../../components/MovieCredits";
+import { MovieDetailCard } from "../../organize/MovieDetailCard";
+import { MovieCardXS } from "../../organize/MovieCardXS";
+import { ReviewForm } from "../../organize/ReviewForm";
+import { MovieReviews } from "../../organize/MovieReviews";
+import { MovieCredits } from "../../organize/MovieCredits";
 import "animate.css";
 
 export const MovieDetails = () => {
