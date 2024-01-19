@@ -1,18 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
 
-// import required modules
 import { Grid, Pagination } from "swiper/modules";
 
-const LandingCarouselMovies = ({ data, isLoading }) => {
-	const swiperSlideStyles = "";
+const CarouselGrid = ({ data, isLoading }) => {
 	return (
 		<Swiper
 			slidesPerView={2}
@@ -64,9 +60,7 @@ const LandingCarouselMovies = ({ data, isLoading }) => {
 							return (
 								<SwiperSlide
 									key={`loading-skeleton-${item}`}
-									className={`${swiperSlideStyles} skeleton bg-base-200 rounded-md min-h-72`}>
-									<div className=""></div>
-								</SwiperSlide>
+									className={`skeleton bg-base-200 rounded-md min-h-72`}></SwiperSlide>
 							);
 						})}
 					</>
@@ -75,7 +69,8 @@ const LandingCarouselMovies = ({ data, isLoading }) => {
 						{data.map((item) => {
 							return (
 								<SwiperSlide
-									className={`${swiperSlideStyles} h-full w-full rounded-md overflow-hidden`}>
+									key={item.id}
+									className={`h-full w-full rounded-md overflow-hidden`}>
 									<Link to={`/movies/${item.id}`}>
 										<div className="w-full  flex flex-col bg-base-200 rounded-md min-h-48">
 											<img
@@ -99,4 +94,4 @@ const LandingCarouselMovies = ({ data, isLoading }) => {
 	);
 };
 
-export default LandingCarouselMovies;
+export default CarouselGrid;

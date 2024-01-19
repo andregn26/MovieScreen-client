@@ -1,14 +1,13 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-cards";
-// import required modules
+
 import { EffectCards, Autoplay } from "swiper/modules";
 import { Link } from "react-router-dom";
 
-const TrendingMovies = ({ data, isLoading }) => {
+const CarouselTrendingMovies = ({ data, isLoading }) => {
 	const swiperSlideStyles = "min-h-[280px] md:min-h-[380px] rounded-md";
 	return (
 		<>
@@ -58,4 +57,4 @@ const TrendingMovies = ({ data, isLoading }) => {
 	);
 };
 
-export default TrendingMovies;
+export default CarouselTrendingMovies;

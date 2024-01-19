@@ -27,6 +27,13 @@ const Avatar = ({ user, logoutUser }) => {
 					</NavLink>
 				</li>
 				<li>
+					<NavLink
+						to={`/find-friends`}
+						className={({ isActive }) => (isActive ? "bg-accent-700 w-full" : "")}>
+						Find Friends
+					</NavLink>
+				</li>
+				<li>
 					<div onClick={logoutUser}>Logout</div>
 				</li>
 			</ul>

@@ -16,7 +16,7 @@ import { UserFollowers } from "./components/pages/user/UserFollowers";
 import { MovieDetails } from "./components/pages/movie/MovieDetails";
 // feed
 import { searchMovie } from "./api";
-import { FindFriends } from "./components/pages/feed/FindFriends";
+import { FindFriends } from "./components/pages/FindFriends";
 import { Feed } from "./components/pages/feed/Feed";
 import { CreatePost } from "./components/organize/CreatePost";
 import { Post } from "./components/organize/Post";
