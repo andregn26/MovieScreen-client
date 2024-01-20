@@ -5,7 +5,7 @@ const InputSearch = ({ className = "", placeholder, onChange, value }) => {
 			placeholder={placeholder}
 			onChange={onChange}
 			value={value}
-			className={`${className} input bg-base-100 w-24 md:w-auto`}
+			className={`${className} input bg-base-200  md:w-auto`}
 		/>
 	);
 };

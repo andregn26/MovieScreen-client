@@ -109,7 +109,7 @@ export const EditUser = () => {
 	};
 
 	return (
-		<Container>
+		<Container className={"mb-24"}>
 			<UserNavigationHeader username={username} type={"edit profile"} />
 			<div className="card sm:max-w-md lg:max-w-screen-lg lg:card-side bg-base-200/70 shadow-xl">
 				<figure className="relative lg:max-w-sm">

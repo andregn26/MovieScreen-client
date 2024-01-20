@@ -36,14 +36,14 @@ export const Signup = () => {
 
 	return (
 		<>
-			<div class="container  pt-20 max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
-				<div class="glassmorphism px-6 py-8 rounded-xl shadow-md text-primary-300 w-full">
+			<div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
+				<div class="bg-base-100 px-6 py-8 rounded-xl shadow-md text-primary-300 w-full">
 					<h1 class="mb-8 text-3xl text-center">Sign up</h1>
 					<form onSubmit={handleSubmit} className="flex flex-col items-center">
 						{/* username */}
 						<input
 							type="text"
-							class="input w-full max-w-xs mb-4 bg-base-300"
+							class="input w-full max-w-xs mb-4 !bg-base-300"
 							name="fullname"
 							placeholder="Username"
 							value={username}
@@ -71,7 +71,7 @@ export const Signup = () => {
 							onChange={(e) => setPassword(e.target.value)}
 						/>
 
-						<button type="submit" class="btn btn-accent btn-wide">
+						<button type="submit" class="btn btn-primary btn-wide">
 							Create Account
 						</button>
 						{message && (

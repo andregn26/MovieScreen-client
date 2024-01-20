@@ -5,13 +5,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
+import "swiper/css/navigation";
 
-import { Grid, Pagination } from "swiper/modules";
+import { Grid, Pagination, Navigation } from "swiper/modules";
 
 const CarouselGrid = ({ data, isLoading }) => {
 	return (
 		<Swiper
 			slidesPerView={2}
+			navigation={true}
 			grid={{
 				rows: 1,
 				fill: "rows",
@@ -51,8 +53,8 @@ const CarouselGrid = ({ data, isLoading }) => {
 					},
 				},
 			}}
-			modules={[Grid, Pagination]}
-			className="mx-auto w-full h-full ">
+			modules={[Grid, Pagination, Navigation]}
+			className="mx-auto w-full h-full  !pb-12">
 			<>
 				{isLoading ? (
 					<>

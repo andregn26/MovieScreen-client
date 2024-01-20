@@ -4,7 +4,6 @@ import { useContext, useState, useEffect } from "react";
 import { UserContext } from "../../../context/user.context";
 import { CreatePost } from "../../organize/CreatePost";
 import { Post } from "../../organize/Post";
-import "./Feed.scss";
 
 export const Feed = () => {
 	const { user } = useContext(UserContext);

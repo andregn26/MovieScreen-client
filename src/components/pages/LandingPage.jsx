@@ -1,10 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { randomReviews, getUpcomingMovies, trendingWeekMovies, getTopRated, getPopularMovies, getInTheatres, randomSix } from "../../api";
 import Container from "../../components/templates/Container";
 import TrendingMovies from "../molecules/CarouselTrendingMovies";
 import CarouselSection from "../organisms/CarouselSection";
 import CommentsSection from "../organisms/CommentsSection";
+import ButtonAuth from "../atoms/ButtonAuth";
+import { UserContext } from "../../context/user.context";
+import UserSample from "../organisms/UserSample";
 
 export const LandingPage = () => {
 	const [trendingMovies, setTrendingMovies] = useState([]);
@@ -21,6 +24,8 @@ export const LandingPage = () => {
 	const [randomUsers, setRandomUsers] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 
+	const { isLoggedIn } = useContext(UserContext);
+
 	// TRENDING MOVIES
 	useEffect(() => {
 		setIsLoadingTrendingMovies(true);
@@ -30,7 +35,7 @@ export const LandingPage = () => {
 				setTrendingMovies(findTrending.data.results);
 				setIsLoadingTrendingMovies(false);
 			})();
-		}, 2000);
+		}, 1000);
 		return () => clearTimeout(timerId);
 	}, []);
 
@@ -43,7 +48,7 @@ export const LandingPage = () => {
 				setUpcomingMovies(findUpcoming.data.results);
 				setIsLoadingUpcomingMovies(false);
 			})();
-		}, 4000);
+		}, 1000);
 		return () => clearTimeout(timerId);
 	}, []);
 
@@ -56,7 +61,7 @@ export const LandingPage = () => {
 				setPopularMovies(findTopRated.data.results);
 				setIsLoadingPopularMovies(false);
 			})();
-		}, 4000);
+		}, 1000);
 		return () => clearTimeout(timerId);
 	}, []);
 
@@ -69,7 +74,7 @@ export const LandingPage = () => {
 				setTopRatedMovies(findTopRated.data.results);
 				setIsLoadingTopRatedMovies(false);
 			})();
-		}, 4000);
+		}, 1000);
 		return () => clearTimeout(timerId);
 	}, []);
 
@@ -82,7 +87,7 @@ export const LandingPage = () => {
 				setInTheatres(findTopRated.data.results);
 				setIsLoadingInTheatres(false);
 			})();
-		}, 4000);
+		}, 1000);
 		return () => clearTimeout(timerId);
 	}, []);
 
@@ -105,36 +110,26 @@ export const LandingPage = () => {
 	}, []);
 
 	return (
-		<Container className="">
+		<Container className="mb-24">
 			<div className="max-w-screen-lg flex flex-col items-center gap-8 lg:gap-16 lg:flex-row" id="hero">
 				<div className="h-full max-w-screen-sm flex flex-col">
 					<h1 className="w-full heading-1  text-center lg:text-left">
 						Connect with people who share the passion for the seventh art
 					</h1>
+					{isLoggedIn ? null : (
+						<>
+							<div className="flex gap-2">
+								<ButtonAuth cta="Login" href="/login" />
+								<ButtonAuth className="btn-outline" cta="Sign Up" href="/signup" />
+							</div>
+						</>
+					)}
 				</div>
 				<div className="w-full overflow-hidden">
 					<TrendingMovies isLoading={isLoadingTrendingMovies} data={trendingMovies} />
 				</div>
 			</div>
-			<section className="w-full mt-36 flex flex-col justify-center items-center">
-				<h2 className="heading-2">Join our fast-growing community!</h2>
-				<div className="flex gap-8" style={{ marginTop: "40px" }}>
-					{randomUsers.length >= 1 &&
-						randomUsers.map((user) => {
-							return (
-								<article key={user._id} className="w-24 h-24 rounded-full overflow-hidden">
-									<Link to={`/profile/${user.username}`}>
-										<img
-											className="object-cover h-24 w-24"
-											src={user.profileImg}
-											alt="userimage"
-										/>
-									</Link>
-								</article>
-							);
-						})}
-				</div>
-			</section>
+			<UserSample data={randomUsers} />
 			<CommentsSection data={sampleReviews} />
 			<CarouselSection title={"Upcoming"} data={upcomingMovies} isLoading={isLoadingUpcomingMovies} />
 			<CarouselSection title={"Most Popular"} data={popularMovies} isLoading={isLoadingPopularMovies} />

@@ -17,7 +17,7 @@ export const UserFollowers = () => {
 	}, [username]);
 
 	return (
-		<Container>
+		<Container className={"mb-24 "}>
 			<UserNavigationHeader username={username} type={"followers"} />
 			{userFollowers && userFollowers.length > 0 ? (
 				<div className="w-full grid grid-cols-6 lg:grid-cols-12 gap-8">

@@ -58,7 +58,7 @@ export const UserReviews = () => {
 	};
 
 	return (
-		<Container>
+		<Container className={"mb-24"}>
 			<UserNavigationHeader username={username} type={"reviews"} />
 
 			<div className="w-full grid grid-cols-6 gap-8">

@@ -65,10 +65,10 @@ export const Profile = () => {
 	};
 
 	//Styles
-	const socialComponentLinksStyle = " text-xs btn btn-ghost";
+	const socialComponentLinksStyle = "text-xs btn btn-ghost";
 
 	return (
-		<section id="page-profile" className=" w-full px-8 md:px-12  xl:px-16 mt-24">
+		<section id="page-profile" className=" w-full px-8 md:px-12  xl:px-16 my-24">
 			{isLoading && (
 				<div
 					style={{

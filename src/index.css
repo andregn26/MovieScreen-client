@@ -90,5 +90,11 @@
   @apply  shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.05)] backdrop-blur bg-base-200/80 ;
 }
 
+.swiper-button-prev, .swiper-button-next {
+  @apply !text-gray-300 bg-base-200/80 !rounded-md overflow-hidden
+}
 
+.swiper-pagination-bullet-active {
+  @apply !bg-primary
+  }
 

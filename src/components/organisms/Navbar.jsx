@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { UserContext } from "../../context/user.context";
 import Logo from "../atoms/Logo";
 import Avatar from "../molecules/Avatar";
-import ButtonAuth from "../atoms/ButtonAuth";
 import InputSearch from "../atoms/InputSearch";
 
 export const Navbar = ({ filterMovieList, query }) => {
@@ -11,20 +10,11 @@ export const Navbar = ({ filterMovieList, query }) => {
 	return (
 		<header id="header" className="navbar bg-base-300/80 w-full flex justify-between shadow-lg px-8 z-50">
 			<Logo />
-			<div className="form-control">
-				<InputSearch placeholder="Search" onChange={filterMovieList} value={query} />
-			</div>
-			<div className="">
-				{isLoggedIn ? (
-					<Avatar user={user} logoutUser={logoutUser} />
-				) : (
-					<>
-						<div className="flex gap-2">
-							<ButtonAuth cta="Login" href="/login" />
-							<ButtonAuth className="btn-outline" cta="Sign Up" href="/signup" />
-						</div>
-					</>
-				)}
+			<div className={`${isLoggedIn ? "gap-6" : ""} flex`}>
+				<div className="form-control">
+					<InputSearch placeholder="Search" onChange={filterMovieList} value={query} />
+				</div>
+				<div className="">{isLoggedIn ? <Avatar user={user} logoutUser={logoutUser} /> : null}</div>
 			</div>
 		</header>
 	);

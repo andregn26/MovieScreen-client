@@ -58,7 +58,7 @@ function App() {
 				<div className="gradient"></div>{" "}
 			</div>
 			<Navbar filterMovieList={filterMovieList} query={searchQuery} />
-			<main className={` relative  w-full flex flex-col items-center justify-center align-middle`}>
+			<main className={` relative min-h-[calc(100vh-128px)] w-full flex flex-col items-center align-middle`}>
 				{searchQuery && (
 					<MovieSearchModal movie={searchedMovies} cleanUp={cleanUp} isLoadingSearch={isLoadingSearch} />
 				)}
