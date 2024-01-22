@@ -15,11 +15,10 @@ import { UserContext } from "../../../context/user.context";
 import { toast } from "react-toastify";
 import { useContext } from "react";
 import { MovieHeader } from "../../organisms/MovieHeader";
-import { MovieCardXS } from "../../organize/MovieCardXS";
-import { ReviewForm } from "../../organize/ReviewForm";
-import { MovieReviews } from "../../organize/MovieReviews";
+import { CardMovie } from "../../molecules/CardMovie";
+import { SectionReviewForm } from "../../organisms/SectionReviewForm";
+import { SectionMovieReviews } from "../../organize/SectionMovieReviews";
 import { CardMoviePerson } from "../../molecules/CardMoviePerson";
-import "animate.css";
 import Container from "../../templates/Container";
 
 export const MovieDetails = () => {
@@ -67,11 +66,11 @@ export const MovieDetails = () => {
 	useEffect(() => {
 		setIsLoading(true);
 		(async () => {
-			const movieReviewsFromDb = await getMovieReviews(movie.id);
+			const movieReviewsFromDb = await getMovieReviews(movieId);
 			setMovieReviews(movieReviewsFromDb.data.reviews);
 			setIsLoading(false);
 		})();
-	}, [movie]);
+	}, [movie, movieId]);
 
 	useEffect(() => {
 		setIsLoading(true);
@@ -146,18 +145,15 @@ export const MovieDetails = () => {
 			{movie.id === Number(movieId) ? (
 				<>
 					<section className="w-full min-h-screen mb-24">
-						<>
-							<MovieHeader
-								movie={movie}
-								removeMovie={removeMovie}
-								addMovie={addMovie}
-								userFavourites={userFavourites}
-								userInSession={userInSession}
-								movieId={movieId}
-							/>
-						</>
+						<MovieHeader
+							movie={movie}
+							removeMovie={removeMovie}
+							addMovie={addMovie}
+							userFavourites={userFavourites}
+							userInSession={userInSession}
+							movieId={movieId}
+						/>
 					</section>
-
 					<Container className="!mt-0">
 						<h3 className="heading-3 text-center w-full">Cast</h3>
 						<div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 justify-center ">
@@ -184,11 +180,32 @@ export const MovieDetails = () => {
 							{!moreCrew ? <>+</> : <>-</>}
 						</button>
 					</Container>
-
-					<section>
-						{movieReviews && <MovieReviews movieReviews={movieReviews} />}
+					<Container>
+						<h3 className="heading-3 text-center w-full">You might also like</h3>
+						<div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 justify-center ">
+							{!moreSimilar ? (
+								<>
+									<CardMovie data={similarMovies.slice(0, 8)} />
+								</>
+							) : (
+								<>
+									<CardMovie data={similarMovies} />
+								</>
+							)}
+						</div>
+						<button className="btn btn-wide my-8" onClick={() => setMoreSimilar((prev) => !prev)}>
+							{!moreSimilar ? <>Show More</> : <>Hide</>}
+						</button>
+					</Container>
+					<Container className={"mb-24"}>
+						{movieReviews && (
+							<SectionMovieReviews
+								movieReviews={movieReviews}
+								setMovieReviews={setMovieReviews}
+							/>
+						)}
 						{isLoggedIn && (
-							<ReviewForm
+							<SectionReviewForm
 								handleForm={handleForm}
 								form={form}
 								handleSubmit={handleSubmit}
@@ -198,23 +215,7 @@ export const MovieDetails = () => {
 								setReview={setReview}
 							/>
 						)}
-					</section>
-
-					<section>
-						{!moreSimilar ? (
-							<>
-								<h3>You might also like:</h3>
-								<MovieCardXS similarMovies={similarMovies.slice(0, 8)} />
-								<p onClick={() => setMoreSimilar(!moreSimilar)}>show more...</p>
-							</>
-						) : (
-							<>
-								<h3>You might also like:</h3>
-								<MovieCardXS similarMovies={similarMovies} />
-								<p onClick={() => setMoreSimilar(!moreSimilar)}>hide</p>
-							</>
-						)}
-					</section>
+					</Container>
 				</>
 			) : (
 				<p>Movie doesn't exist</p>

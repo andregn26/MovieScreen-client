@@ -1,26 +1,28 @@
-import React from "react";
 import { format } from "timeago.js";
 import { Link } from "react-router-dom";
-import "animate.css";
+import { UserContext } from "../../context/user.context";
+import { useContext } from "react";
+import ButtonAuth from "../atoms/ButtonAuth";
+import Container from "../templates/Container";
+import { useEffect } from "react";
 
-export const MovieReviews = ({ movieReviews }) => {
+export const SectionMovieReviews = ({ movieReviews, setMovieReviews }) => {
+	useEffect(() => {
+		setMovieReviews([]);
+	}, [setMovieReviews]);
+
+	const { isLoggedIn } = useContext(UserContext);
 	return (
 		<>
-			{movieReviews.length >= 1 ? (
-				<div style={{ textAlign: "center" }}>
-					<h3 className="ff-sans-cond fs-700">Reviews from our users:</h3>
-				</div>
-			) : (
-				<div style={{ textAlign: "center" }}>
-					<h3 className="ff-sans-cond fs-700">Be the first to review this movie!</h3>
-				</div>
-			)}
+			<h3 className="heading-3">
+				{movieReviews.length >= 1 ? <>Reviews from our users</> : <>Be the first to review this movie!</>}{" "}
+			</h3>
 
 			{movieReviews.map((review) => {
 				return (
 					<article
 						key={review._id}
-						className="animate__animated animate__fadeIn"
+						className=""
 						style={{
 							display: "flex",
 							flexDirection: "column",
@@ -79,6 +81,16 @@ export const MovieReviews = ({ movieReviews }) => {
 					</article>
 				);
 			})}
+
+			{!isLoggedIn ? (
+				<div className="w-full flex flex-col items-center mt-6">
+					<p>Register or login to comment movies</p>
+					<div className="flex gap-4 mt-4 ">
+						<ButtonAuth cta="Login" href="/login" />
+						<ButtonAuth className="btn-outline" cta="Sign Up" href="/signup" />
+					</div>
+				</div>
+			) : null}
 		</>
 	);
 };

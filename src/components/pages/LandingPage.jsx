@@ -102,15 +102,6 @@ export const LandingPage = () => {
 		})();
 	}, []);
 
-	// useEffect(() => {
-	// 	setIsLoading(true);
-	// 	(async () => {
-	// 		const reviews = await randomReviews();
-	// 		setSampleReviews(reviews.data);
-	// 		setIsLoading(false);
-	// 	})();
-	// }, []);
-
 	return (
 		<Container className="mb-24">
 			<div className="max-w-screen-lg flex flex-col items-center gap-8 lg:gap-16 lg:flex-row" id="hero">
