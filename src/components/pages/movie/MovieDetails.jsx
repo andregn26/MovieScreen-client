@@ -171,7 +171,7 @@ export const MovieDetails = () => {
 							{!moreCast ? <>+</> : <>-</>}
 						</button>
 					</Container>
-					<Container>
+					<Container className={"!mt-16"}>
 						<h3 className="heading-3 text-center w-full">Crew</h3>
 						<div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 justify-center ">
 							{!moreCrew ? (

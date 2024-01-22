@@ -7,7 +7,7 @@ const UserSample = ({ data, isLoading }) => {
 			<div className="w-full flex gap-8 flex-wrap justify-center mt-12">
 				{isLoading ? (
 					<>
-						<div className="skeleton bg-base-200 rounded-md min-h-36 w-full">
+						<div className="skeleton bg-base-200 rounded-md min-h-36 w-full flex justify-center items-center">
 							<p>
 								Due to restrictions in the free hosting plan, the database may take up to 30
 								seconds to load
