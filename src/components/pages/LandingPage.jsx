@@ -96,18 +96,20 @@ export const LandingPage = () => {
 		(async () => {
 			const sixUsers = await randomSix();
 			setRandomUsers(sixUsers.data.slice(0, 4));
-			setIsLoading(false);
-		})();
-	}, []);
-
-	useEffect(() => {
-		setIsLoading(true);
-		(async () => {
 			const reviews = await randomReviews();
 			setSampleReviews(reviews.data);
 			setIsLoading(false);
 		})();
 	}, []);
+
+	// useEffect(() => {
+	// 	setIsLoading(true);
+	// 	(async () => {
+	// 		const reviews = await randomReviews();
+	// 		setSampleReviews(reviews.data);
+	// 		setIsLoading(false);
+	// 	})();
+	// }, []);
 
 	return (
 		<Container className="mb-24">
@@ -129,8 +131,8 @@ export const LandingPage = () => {
 					<TrendingMovies isLoading={isLoadingTrendingMovies} data={trendingMovies} />
 				</div>
 			</div>
-			<UserSample data={randomUsers} />
-			<CommentsSection data={sampleReviews} />
+			<UserSample data={randomUsers} isLoading={isLoading} />
+			<CommentsSection data={sampleReviews} isLoading={isLoading} />
 			<CarouselSection title={"Upcoming"} data={upcomingMovies} isLoading={isLoadingUpcomingMovies} />
 			<CarouselSection title={"Most Popular"} data={popularMovies} isLoading={isLoadingPopularMovies} />
 			<CarouselSection title={"Top Rated"} data={topRatedMovies} isLoading={isLoadingTopRatedMovies} />

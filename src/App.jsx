@@ -53,12 +53,12 @@ function App() {
 		setSearchQuery("");
 	};
 	return (
-		<div className={`relative  text-base-content ${searchQuery ? "overflow-hidden h-screen" : ""}`}>
+		<div className={`relative text-base-content ${searchQuery ? "overflow-hidden h-screen" : ""}`}>
 			<div className="w-screen min-h-screen fixed flex justify-center pt-32 px-6 pb-40 pointer-events-none">
-				<div className="gradient"></div>{" "}
+				<div className="gradient"></div>
 			</div>
 			<Navbar filterMovieList={filterMovieList} query={searchQuery} />
-			<main className={` relative min-h-[calc(100vh-128px)] w-full flex flex-col items-center align-middle`}>
+			<main className={`z-30 relative min-h-[calc(100vh-128px)] w-full flex flex-col items-center align-middle`}>
 				{searchQuery && (
 					<MovieSearchModal movie={searchedMovies} cleanUp={cleanUp} isLoadingSearch={isLoadingSearch} />
 				)}

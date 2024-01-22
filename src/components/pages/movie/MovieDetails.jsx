@@ -18,8 +18,9 @@ import { MovieHeader } from "../../organisms/MovieHeader";
 import { MovieCardXS } from "../../organize/MovieCardXS";
 import { ReviewForm } from "../../organize/ReviewForm";
 import { MovieReviews } from "../../organize/MovieReviews";
-import { MovieCredits } from "../../organize/MovieCredits";
+import { CardMoviePerson } from "../../molecules/CardMoviePerson";
 import "animate.css";
+import Container from "../../templates/Container";
 
 export const MovieDetails = () => {
 	const { user, isLoggedIn } = useContext(UserContext);
@@ -141,10 +142,10 @@ export const MovieDetails = () => {
 	};
 
 	return (
-		<div>
+		<>
 			{movie.id === Number(movieId) ? (
 				<>
-					<section>
+					<section className="w-full min-h-screen mb-24">
 						<>
 							<MovieHeader
 								movie={movie}
@@ -157,55 +158,32 @@ export const MovieDetails = () => {
 						</>
 					</section>
 
-					<section>
-						<h3 className="heading-3">Cast</h3>
-						{!moreCast ? (
-							<>
-								<div>
-									<MovieCredits movieCast={movieCast.slice(0, 8)} />
-									<button
-										className="btn-background"
-										onClick={() => setMoreCast(!moreCast)}>
-										+
-									</button>
-								</div>
-							</>
-						) : (
-							<>
-								<div>
-									<MovieCredits movieCast={movieCast.slice(0, 20)} />
-									<button onClick={() => setMoreCast(!moreCast)} className="">
-										-
-									</button>
-								</div>
-							</>
-						)}
-
-						<h3>Crew:</h3>
-						{!moreCrew ? (
-							<>
-								<div>
-									<MovieCredits movieCrew={movieCrew.slice(0, 8)} />
-									<button
-										onClick={() => setMoreCrew(!moreCrew)}
-										className="btn-background">
-										+
-									</button>
-								</div>
-							</>
-						) : (
-							<>
-								<div>
-									<MovieCredits movieCrew={movieCrew.slice(0, 20)} />
-									<button
-										onClick={() => setMoreCrew(!moreCrew)}
-										className="btn-background">
-										-
-									</button>
-								</div>
-							</>
-						)}
-					</section>
+					<Container className="!mt-0">
+						<h3 className="heading-3 text-center w-full">Cast</h3>
+						<div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 justify-center ">
+							{!moreCast ? (
+								<CardMoviePerson data={movieCast.slice(0, 8)} />
+							) : (
+								<CardMoviePerson data={movieCast.slice(0, 20)} />
+							)}
+						</div>
+						<button className="btn btn-wide my-8" onClick={() => setMoreCast((prev) => !prev)}>
+							{!moreCast ? <>+</> : <>-</>}
+						</button>
+					</Container>
+					<Container>
+						<h3 className="heading-3 text-center w-full">Crew</h3>
+						<div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 justify-center ">
+							{!moreCrew ? (
+								<CardMoviePerson data={movieCrew.slice(0, 8)} />
+							) : (
+								<CardMoviePerson data={movieCrew.slice(0, 20)} />
+							)}
+						</div>
+						<button className="btn btn-wide my-8" onClick={() => setMoreCrew((prev) => !prev)}>
+							{!moreCrew ? <>+</> : <>-</>}
+						</button>
+					</Container>
 
 					<section>
 						{movieReviews && <MovieReviews movieReviews={movieReviews} />}
@@ -241,6 +219,6 @@ export const MovieDetails = () => {
 			) : (
 				<p>Movie doesn't exist</p>
 			)}
-		</div>
+		</>
 	);
 };

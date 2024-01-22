@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const Avatar = ({ user, logoutUser }) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	console.log("🚀 ~ Avatar ~ isMenuOpen:", isMenuOpen);
 	const handleClick = () => {
 		setIsMenuOpen((prev) => !prev);
 	};

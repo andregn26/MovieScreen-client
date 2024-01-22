@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
 	return (
-		<footer className="bg-base-300 px-8 py-4 items-center">
+		<footer className="z-50 absolute w-full bg-base-300 px-8 py-4 items-center">
 			<div className="flex justify-between">
 				<h5>Made by JN & AG</h5>
 				<a href={"https://developers.themoviedb.org/"} target="blank">
